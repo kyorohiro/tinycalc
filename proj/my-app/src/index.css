@@ -1,17 +1,57 @@
-@tailwind base;
+@tailwin0 base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    @apply bg-black;
+    @apply text-xs;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+
+}
+
+.calc-button-a {
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply rounded-full;
+    @apply bg-yellow-500;
+    @apply w-full;
+    @apply h-full;
+    @apply text-white;
+}
+
+.calc-button-a:hover {
+    @apply bg-yellow-300;
+}
+
+.calc-button-b {
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply rounded-full;
+    @apply bg-gray-300;
+    @apply w-full;
+    @apply h-full;
+    @apply text-black
+}
+
+.calc-button-b:hover {
+    @apply bg-gray-200;
+}
+
+.calc-button-c {
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply rounded-full;
+    @apply bg-gray-500;
+    @apply w-full;
+    @apply h-full;
+    @apply text-white
+}
+
+.calc-button-c:hover {
+    @apply bg-gray-200;
 }
