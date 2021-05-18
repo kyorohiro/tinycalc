@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/tinycalc/static/css/main.bf6b6188.chunk.css",
-    "main.js": "/tinycalc/static/js/main.9d5e3528.chunk.js",
-    "main.js.map": "/tinycalc/static/js/main.9d5e3528.chunk.js.map",
+    "main.css": "/tinycalc/static/css/main.e61c8d5b.chunk.css",
+    "main.js": "/tinycalc/static/js/main.80501615.chunk.js",
+    "main.js.map": "/tinycalc/static/js/main.80501615.chunk.js.map",
     "runtime-main.js": "/tinycalc/static/js/runtime-main.b69e98de.js",
     "runtime-main.js.map": "/tinycalc/static/js/runtime-main.b69e98de.js.map",
     "static/js/2.80e58b99.chunk.js": "/tinycalc/static/js/2.80e58b99.chunk.js",
     "static/js/2.80e58b99.chunk.js.map": "/tinycalc/static/js/2.80e58b99.chunk.js.map",
     "index.html": "/tinycalc/index.html",
-    "static/css/main.bf6b6188.chunk.css.map": "/tinycalc/static/css/main.bf6b6188.chunk.css.map",
+    "static/css/main.e61c8d5b.chunk.css.map": "/tinycalc/static/css/main.e61c8d5b.chunk.css.map",
     "static/js/2.80e58b99.chunk.js.LICENSE.txt": "/tinycalc/static/js/2.80e58b99.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b69e98de.js",
     "static/js/2.80e58b99.chunk.js",
-    "static/css/main.bf6b6188.chunk.css",
-    "static/js/main.9d5e3528.chunk.js"
+    "static/css/main.e61c8d5b.chunk.css",
+    "static/js/main.80501615.chunk.js"
   ]
 }

@@ -55,7 +55,7 @@ function App(params: any) {
           gap:`${gapSize}px`,
           fontSize: `${fontSize}px`
         }}>
-          <div className="flex col-start-1 col-end-5 row-start-1 items-end justify-end h-full w-full text-white">
+          <div className="pb-5 flex col-start-1 col-end-5 row-start-1 items-end justify-end h-full w-full text-white">
             <div className="">Numberasdfs</div>
           </div>
           <div className="calc-button-b">
