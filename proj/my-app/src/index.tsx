@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+//
+// 
+document.addEventListener('touchmove', function(e) {e.preventDefault();}, {passive: false});
+
+
 interface WindowSize {
   height: number,
   width: number
@@ -24,6 +29,7 @@ function App(params: any) {
   const calcFontSize = ()=> {
     return calcButtonSize()*0.5    
   }
+  const [result, setResult] = useState<number>(0)
   const [buttonSize, setButtonSize] = useState<number>(calcButtonSize()) 
   const [gapSize, setGapSize] = useState<number>(calcGapSize())
   const [fontSize, setFontSize] = useState<number>(calcFontSize())
@@ -35,6 +41,7 @@ function App(params: any) {
         height: window.innerHeight-20,
         width: window.innerWidth-20
       })
+      setResult(window.innerWidth)
       setButtonSize(calcButtonSize())
       setGapSize(calcGapSize())
     }
@@ -56,7 +63,7 @@ function App(params: any) {
           fontSize: `${fontSize}px`
         }}>
           <div className="pb-5 flex col-start-1 col-end-5 row-start-1 items-end justify-end h-full w-full text-white">
-            <div className="">Numberasdfs</div>
+            <div className="">{result}</div>
           </div>
           <div className="calc-button-b">
             <div className="mx-auto">AC</div>
