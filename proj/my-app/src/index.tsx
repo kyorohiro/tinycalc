@@ -20,20 +20,25 @@ function App(params: any) {
     height: window.innerHeight-20,
     width: window.innerWidth-20
   })
-  const calcButtonSize = ()=> {
+  const calcButtonWidth = ()=> {
     return (window.innerWidth -myMargine)/4.5
   }
+  const calcButtonHeight = ()=> {
+    return (window.innerHeight -myMargine)/7.5
+  }
   const calcGapSize = () => {
-    return ((window.innerWidth-myMargine)-buttonSize*4)/3
+    return ((window.innerWidth-myMargine)-buttonWidth*4)/3
   }
   const calcFontSize = ()=> {
-    return calcButtonSize()*0.5    
+    return calcButtonWidth()*0.5    
   }
   const [result, setResult] = useState<number>(0)
-  const [buttonSize, setButtonSize] = useState<number>(calcButtonSize()) 
+  const [buttonWidth, setButtonWidth] = useState<number>(calcButtonWidth()) 
+  const [buttonHeight, setButtonHeight] = useState<number>(calcButtonHeight()) 
   const [gapSize, setGapSize] = useState<number>(calcGapSize())
   const [fontSize, setFontSize] = useState<number>(calcFontSize())
   console.log(`isze ${window.innerWidth} ${window.innerHeight}`)
+  /*
   React.useEffect(() => {
     function handleResize() {
       console.log(`resze ${window.innerWidth} ${window.innerHeight}`)
@@ -42,24 +47,30 @@ function App(params: any) {
         width: window.innerWidth-20
       })
       setResult(window.innerWidth)
-      setButtonSize(calcButtonSize())
+      setButtonWidth(calcButtonWidth())
+      setButtonHeight(calcButtonHeight())
       setGapSize(calcGapSize())
+      setFontSize(calcFontSize())
     }
     window.addEventListener('resize', handleResize)
+    //window.addEventListener('onorientationchange', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)
+      //window.removeEventListener('onorientationchange', handleResize)
     }
-  })
+  })*/
 
   /*grid-cols-4 grid-rows-6*/
   return (
     <React.StrictMode>
         <div className="grid gap-4 items-center justify-items-center m-1" style={{
-          gridTemplateColumns: `repeat(4, ${buttonSize}px)`,
-          gridTemplateRows: `auto repeat(5, ${buttonSize}px)`,
-          width:`${myWindowSize.width-40}px`,
-          height:`${myWindowSize.height-40}px`,
-          gap:`${gapSize}px`,
+          gridTemplateColumns: `repeat(4, 1fr)`,
+          gridTemplateRows: `2fr repeat(5, 1fr)`,
+          width: '100%',
+          height: '100vh',
+          //width:`${myWindowSize.width-40}px`,
+          //height:`${myWindowSize.height-40}px`,
+          gap:'auto',//`${gapSize}px`,
           fontSize: `${fontSize}px`
         }}>
           <div className="pb-5 flex col-start-1 col-end-5 row-start-1 items-end justify-end h-full w-full text-white">
@@ -136,80 +147,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-/*
-ReactDOM.render(
-  <React.StrictMode>
-
-    <div className="p-1 max-w-sm mx-auto bg-gray-800 rounded-sm shadow-md grid grid-cols-4 auto-rows-fr gap-x-2 gap-y-2 text-pink-200 text-center items-center">
-      <div className="col-start-1 col-end-5 h-16 flex items-end justify-end">
-        <div className="inline-block text-6xl">0</div>
-      </div>
-
-      <div className={cssCalcButtonCont(ButtonType.Option)}>
-        <div className={cssCalcButton(ButtonType.Option)}>AC</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Option)}>
-        <div className={cssCalcButton(ButtonType.Option)}>+/-</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Option)}>
-        <div className={cssCalcButton(ButtonType.Option)}>%</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Action)}>
-        <div className={cssCalcButton(ButtonType.Action)}>/</div>
-      </div>
-
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>7</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>8</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>9</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Action)}>
-        <div className={cssCalcButton(ButtonType.Action)}>*</div>
-      </div>
-
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>4</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>5</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>6</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Action)}>
-        <div className={cssCalcButton(ButtonType.Action)}>-</div>
-      </div>
-
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>1</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>2</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>3</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Action)}>
-        <div className={cssCalcButton(ButtonType.Action)}>+</div>
-      </div>
-
-      <div className={`col-start-1 col-end-3 ${cssCalcButtonCont(ButtonType.Number, "w-36", "h-12")}`}>
-        <div className={cssCalcButton(ButtonType.Number)}>0</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Number)}>
-        <div className={cssCalcButton(ButtonType.Number)}>.</div>
-      </div>
-      <div className={cssCalcButtonCont(ButtonType.Action)}>
-        <div className={cssCalcButton(ButtonType.Action)}>=</div>
-      </div>
-
-    </div>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-*/
