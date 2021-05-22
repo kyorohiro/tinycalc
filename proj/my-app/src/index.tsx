@@ -16,40 +16,18 @@ function App(params: any) {
 
 
   const myMargine = 20
-  const [myWindowSize, setMyWindowSize] = useState<WindowSize>({
-    height: window.innerHeight-20,
-    width: window.innerWidth-20
-  })
-  const calcButtonWidth = ()=> {
-    return (window.innerWidth -myMargine)/4.5
-  }
-  const calcButtonHeight = ()=> {
-    return (window.innerHeight -myMargine)/7.5
-  }
-  const calcGapSize = () => {
-    return ((window.innerWidth-myMargine)-buttonWidth*4)/3
-  }
   const calcFontSize = ()=> {
-    return calcButtonWidth()*0.5    
+    var h=  (window.innerHeight -myMargine)/8
+    return h*0.4
   }
   const [result, setResult] = useState<number>(0)
-  const [buttonWidth, setButtonWidth] = useState<number>(calcButtonWidth()) 
-  const [buttonHeight, setButtonHeight] = useState<number>(calcButtonHeight()) 
-  const [gapSize, setGapSize] = useState<number>(calcGapSize())
   const [fontSize, setFontSize] = useState<number>(calcFontSize())
   console.log(`isze ${window.innerWidth} ${window.innerHeight}`)
-  /*
+  
   React.useEffect(() => {
     function handleResize() {
       console.log(`resze ${window.innerWidth} ${window.innerHeight}`)
-      setMyWindowSize({
-        height: window.innerHeight-20,
-        width: window.innerWidth-20
-      })
       setResult(window.innerWidth)
-      setButtonWidth(calcButtonWidth())
-      setButtonHeight(calcButtonHeight())
-      setGapSize(calcGapSize())
       setFontSize(calcFontSize())
     }
     window.addEventListener('resize', handleResize)
@@ -58,7 +36,7 @@ function App(params: any) {
       window.removeEventListener('resize', handleResize)
       //window.removeEventListener('onorientationchange', handleResize)
     }
-  })*/
+  })
 
   /*grid-cols-4 grid-rows-6*/
   return (
@@ -73,11 +51,11 @@ function App(params: any) {
           gap:'auto',//`${gapSize}px`,
           fontSize: `${fontSize}px`
         }}>
-          <div className="pb-5 flex col-start-1 col-end-5 row-start-1 items-end justify-end h-full w-full text-white">
+          <div className="flex col-start-1 col-end-5 row-start-1 items-end justify-end h-full w-full bg-gray-900 text-white">
             <div className="">{result}</div>
           </div>
-          <div className="calc-button-b">
-            <div className="mx-auto">AC</div>
+          <div className="calc-button-b items-center justify-center">
+            <div>AC</div>
           </div>
           <div className="calc-button-b">
             <div >+/-</div>
