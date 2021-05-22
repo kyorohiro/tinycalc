@@ -22,6 +22,7 @@ function App(params: any) {
     return h*0.4
   }
 
+  const [result, setResult] = useState<number>(0)
   const [numberBoard, setNumberBoard] = useState<string>('0')
   const [fontSize, setFontSize] = useState<number>(calcFontSize())
   const [action, setActoion] = useState<string>('none')
@@ -44,12 +45,30 @@ function App(params: any) {
     switch(e){
       case "AC":
         console.log("AC")
+        setResult(0)
         setNumberBoard('0')
         break
+      case "=":
+        console.log(`= ${numberBoard} ${result}`)
+        var n = Number(numberBoard)
+        if(action == "+") {
+          setResult(result + n)
+        }
+        setActoion(e)
+        setNumberBoard(`${result + n}`)
+        setResult(0)
+
+        break;
       case "+":
-        console.log("+")
+        console.log(`+ ${numberBoard} ${result}`)
         // 
-        setActoion("+")
+        var n = Number(numberBoard)
+        if(action == "+") {
+          setResult(result + n)
+        }else{
+          setResult(n)
+        }
+        setActoion(e)
         setNumberBoard("0")
         break
       case ".":
@@ -139,7 +158,7 @@ function App(params: any) {
           <div className="calc-button-c" onClick={()=>{clickBtn('.')}}>
             <div >.</div>
           </div>
-          <div className="calc-button-a">
+          <div className="calc-button-a" onClick={()=>{clickBtn('=')}}>
             <div >=</div>
           </div>
 
