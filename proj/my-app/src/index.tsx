@@ -84,6 +84,11 @@ function App(params: any) {
         setNumberBoard('0')
         setNumberBoardValue('0')
         break
+      case "C":
+        console.log("C")
+        setNumberBoard('0')
+        setNumberBoardValue('0')
+        break
       case "=":
         doAction()
         setActoion('none')
@@ -92,6 +97,18 @@ function App(params: any) {
         doAction()
         setActoion(e)
         break
+      case "+/-":
+        if (numberBoardValue == '0') {
+          setNumberBoard("0")
+          setNumberBoardValue("0")
+        } else if(numberBoardValue.startsWith("-")){
+          setNumberBoard(numberBoardValue.replace("-","") )
+          setNumberBoardValue(numberBoardValue.replace("-",""))
+        } else {
+          setNumberBoard("-"+numberBoardValue)
+          setNumberBoardValue("-"+numberBoardValue)
+        }
+        break 
       case "-":
         doAction()
         setActoion(e)
@@ -140,11 +157,11 @@ function App(params: any) {
         <div className="calc-button-b items-center justify-center" onClick={() => { clickBtn("AC") }}>
           <div>AC</div>
         </div>
+        <div className="calc-button-b" onClick={() => { clickBtn("C") }}>
+          <div >C</div>
+        </div>
         <div className="calc-button-b" onClick={() => { clickBtn("+/-") }}>
           <div >+/-</div>
-        </div>
-        <div className="calc-button-b" onClick={() => { clickBtn("%") }}>
-          <div >%</div>
         </div>
         <div className="calc-button-a" onClick={() => { clickBtn("/") }}>
           <div >/</div>
